@@ -4,8 +4,9 @@ import background from "../assets/scifi_platform_BG1.jpg";
 // import tiles from "../assets/scifi_platformTiles_32x32.png";
 // import star from "../assets/star.png";
 // import { accelerate, decelerate } from "../utils";
-import chick from "../assets/chick.png";
+import chick from "../assets/starman-final-xsm.png";
 import crate from "../assets/block.png";
+//
 
 let block;
 let cursors;
@@ -21,10 +22,8 @@ export default new Phaser.Class({
   },
   preload: function preload() {
     this.load.spritesheet("player", chick, {
-      frameWidth: 16,
-      frameHeight: 18,
-      startFrame: 0,
-      endFrame: 3,
+      frameWidth: 100,
+      frameHeight: 248,
     });
     this.load.image("background", background);
     this.load.image("block", crate);
@@ -36,17 +35,16 @@ export default new Phaser.Class({
 
     player = this.physics.add.sprite(200, 200, "player");
     player.setBounce(0.2);
-    player.setCollideWorldBounds(true);
+    player.setCollideWorldBounds(false);
 
     block = this.physics.add.sprite(95, 95, "block");
     block.setCollideWorldBounds(false);
 
     var rnd = Math.round(Math.random() * 5);
 
-    console.log({ rnd });
     for (var x = 0; x < 10; x++) {
       wall1[x] = this.physics.add
-        .image(800, -50 + 100 * (x >= rnd ? x + 1.5 : x), "block")
+        .image(800, -50 + 100 * (x >= rnd ? x + 2 : x), "block")
         .setImmovable(true)
         .setVelocityX(-200);
       wall1[x].body.setAllowGravity(false);
@@ -56,7 +54,7 @@ export default new Phaser.Class({
 
     for (var x = 0; x < 10; x++) {
       wall2[x] = this.physics.add
-        .image(1200, -50 + 100 * (x >= rnd ? x + 1.5 : x), "block")
+        .image(1200, -50 + 100 * (x >= rnd ? x + 2 : x), "block")
         .setImmovable(true)
         .setVelocityX(-200);
       wall2[x].body.setAllowGravity(false);
@@ -91,14 +89,18 @@ export default new Phaser.Class({
     if (wall2[0].x < -25) {
       repositionWall(wall2);
     }
+
+    if (player.y >= 800) {
+      this.scene.start("diescreen");
+    }
   },
 });
 
 function repositionWall(wall) {
   var rnd = Math.round(Math.random() * 5);
-  console.log({ rnd });
-  wall.forEach((block, i) => {
+
+  wall.forEach((block, x) => {
     block.body.x = 800;
-    block.body.y = 2.5 + 100 * (i >= rnd ? i + 1.5 : i);
+    block.body.y = 2.5 + 100 * (x >= rnd ? x + 2 : x);
   });
 }

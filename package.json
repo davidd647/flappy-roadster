@@ -9,6 +9,7 @@
   "scripts": {
     "start": "parcel src/index.html",
     "build": "parcel build src/index.html",
+    "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
   },
   "homepage": "https://ddales647.github.io/hacky-bird",
