@@ -6,7 +6,7 @@ import backgroundAlpha from "../assets/hyades-800x600.png";
 // import star from "../assets/star.png";
 // import { accelerate, decelerate } from "../utils";
 import starmanXS from "../assets/starman-final-xsm.png";
-import crate from "../assets/block.png";
+import crate from "../assets/asteroid-alpha.png";
 //
 
 let block;
