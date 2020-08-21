@@ -2,10 +2,12 @@ import Phaser from "phaser";
 
 import background from "../assets/hyades-800x600.jpg";
 import backgroundAlpha from "../assets/hyades-800x600.png";
+import starman from "../assets/starman-final-sm.png";
 
 let graphics;
 let cursors;
 let bg1, bg2, bg3, bg4;
+let prePlayer;
 
 export default new Phaser.Class({
   Extends: Phaser.Scene,
@@ -15,6 +17,10 @@ export default new Phaser.Class({
   preload: function () {
     this.load.image("background", background);
     this.load.image("backgroundAlpha", backgroundAlpha);
+    this.load.spritesheet("prePlayer", starman, {
+      frameWidth: 100,
+      frameHeight: 248,
+    });
   },
   create: function () {
     cursors = this.input.keyboard.createCursorKeys();
@@ -38,6 +44,20 @@ export default new Phaser.Class({
     bg4.setCollideWorldBounds(false);
     bg4.body.setVelocityX(-10);
     bg4.body.setAllowGravity(false);
+
+    prePlayer = this.physics.add.sprite(200, 200, "prePlayer");
+    prePlayer.setBounce(0.2);
+    prePlayer.setCollideWorldBounds(false);
+    prePlayer.body.setAllowGravity(false);
+    var tween = this.tweens.add({
+      targets: prePlayer,
+      x: 200,
+      y: 160,
+      ease: "cubic.inOut",
+      duration: 3000,
+      yoyo: true,
+      loop: -1,
+    });
 
     graphics = this.add.graphics();
     graphics.fillStyle(0x000000, 0.85);

@@ -5,7 +5,7 @@ import backgroundAlpha from "../assets/hyades-800x600.png";
 // import tiles from "../assets/scifi_platformTiles_32x32.png";
 // import star from "../assets/star.png";
 // import { accelerate, decelerate } from "../utils";
-import chick from "../assets/starman-final-xsm.png";
+import starmanXS from "../assets/starman-final-xsm.png";
 import crate from "../assets/block.png";
 //
 
@@ -23,9 +23,9 @@ export default new Phaser.Class({
     window.GAME = this;
   },
   preload: function preload() {
-    this.load.spritesheet("player", chick, {
-      frameWidth: 100,
-      frameHeight: 248,
+    this.load.spritesheet("player", starmanXS, {
+      frameWidth: 62,
+      frameHeight: 25,
     });
     this.load.image("background", background);
     this.load.image("block", crate);

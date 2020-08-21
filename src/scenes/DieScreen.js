@@ -16,12 +16,6 @@ export default new Phaser.Class({
     graphics.fillRect(0, 0, 800, 600);
 
     this.add.text(275, 300, "You died! Press space to restart.");
-    this.add.text(275, 315, "Background art from scorcher24:");
-    this.add.text(
-      275,
-      330,
-      "https://opengameart.org/content/space-backgrounds"
-    );
   },
   update: function () {
     if (cursors.space.isDown) {
