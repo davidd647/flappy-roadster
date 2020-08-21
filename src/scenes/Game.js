@@ -1,6 +1,6 @@
 import Phaser from "phaser";
 // import mp3 from "../assets/Orbital Colossus.mp3";
-import background from "../assets/scifi_platform_BG1.jpg";
+import background from "../assets/hyades-800x600.jpg";
 // import tiles from "../assets/scifi_platformTiles_32x32.png";
 // import star from "../assets/star.png";
 // import { accelerate, decelerate } from "../utils";
@@ -40,7 +40,7 @@ export default new Phaser.Class({
     block = this.physics.add.sprite(95, 95, "block");
     block.setCollideWorldBounds(false);
 
-    var rnd = Math.round(Math.random() * 5);
+    var rnd = Math.round(Math.random() * 4);
 
     for (var x = 0; x < 10; x++) {
       wall1[x] = this.physics.add
@@ -50,7 +50,7 @@ export default new Phaser.Class({
       wall1[x].body.setAllowGravity(false);
     }
 
-    rnd = Math.round(Math.random() * 5);
+    rnd = Math.round(Math.random() * 4);
 
     for (var x = 0; x < 10; x++) {
       wall2[x] = this.physics.add
@@ -97,7 +97,7 @@ export default new Phaser.Class({
 });
 
 function repositionWall(wall) {
-  var rnd = Math.round(Math.random() * 5);
+  var rnd = Math.round(Math.random() * 4);
 
   wall.forEach((block, x) => {
     block.body.x = 800;

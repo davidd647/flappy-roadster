@@ -15,7 +15,6 @@ var config = {
     },
   },
   scene: [MainMenu, Game, DieScreen, WinScreen],
-  // scene: [Game, WinScreen],
 };
 
 var game = new Phaser.Game(config);
