@@ -64,7 +64,7 @@ export default new Phaser.Class({
     graphics.fillRect(250, 200, 450, 215);
 
     this.add.text(270, 225, "        - FLAPPY ROADSTER -            ");
-    this.add.text(270, 270, "         Your are Star Man!            ");
+    this.add.text(270, 270, "         You are Star Man!             ");
     this.add.text(270, 285, "Elon has launched you towards Mars, but");
     this.add.text(270, 300, "the gravitational pull of a large mass ");
     this.add.text(270, 315, "is pulling you off-course!");
