@@ -15,6 +15,8 @@ let player;
 let wall1 = [];
 let wall2 = [];
 let bg1, bg2, bg3, bg4;
+let timer;
+let actualTime;
 
 export default new Phaser.Class({
   Extends: Phaser.Scene,
@@ -81,13 +83,18 @@ export default new Phaser.Class({
     }
 
     const processCollision = (player, wall) => {
-      this.scene.start("diescreen");
+      this.scene.start("diescreen", actualTime);
     };
 
     this.physics.add.collider(wall1, player, processCollision);
     this.physics.add.collider(wall2, player, processCollision);
+    actualTime = 0;
+    timer = this.add.text(550, 50, "Score: 0");
   },
   update: function () {
+    actualTime += 0.01;
+    timer.setText("Score: " + Math.round(actualTime) * 100);
+
     if (
       (cursors.left.isDown && cursors.right.isDown) ||
       (!cursors.left.isDown && !cursors.right.isDown)
@@ -119,7 +126,7 @@ export default new Phaser.Class({
     });
 
     if (player.y >= 800) {
-      this.scene.start("diescreen");
+      this.scene.start("diescreen", actualTime);
     }
 
     if (bg1.x < -400) {
