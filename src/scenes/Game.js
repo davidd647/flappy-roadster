@@ -59,9 +59,6 @@ export default new Phaser.Class({
     player.setBounce(0.2);
     player.setCollideWorldBounds(false);
 
-    block = this.physics.add.sprite(95, 95, "block");
-    block.setCollideWorldBounds(false);
-
     var rnd = Math.round(Math.random() * 4);
 
     for (var x = 0; x < 10; x++) {
