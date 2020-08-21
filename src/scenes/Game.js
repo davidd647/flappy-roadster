@@ -1,6 +1,7 @@
 import Phaser from "phaser";
 // import mp3 from "../assets/Orbital Colossus.mp3";
 import background from "../assets/hyades-800x600.jpg";
+import backgroundAlpha from "../assets/hyades-800x600.png";
 // import tiles from "../assets/scifi_platformTiles_32x32.png";
 // import star from "../assets/star.png";
 // import { accelerate, decelerate } from "../utils";
@@ -13,6 +14,7 @@ let cursors;
 let player;
 let wall1 = [];
 let wall2 = [];
+let bg1, bg2, bg3, bg4;
 
 export default new Phaser.Class({
   Extends: Phaser.Scene,
@@ -31,7 +33,25 @@ export default new Phaser.Class({
   create: function create() {
     cursors = this.input.keyboard.createCursorKeys();
 
-    this.add.image(400, 300, "background");
+    bg1 = this.physics.add.image(400, 300, "background");
+    bg1.setCollideWorldBounds(false);
+    bg1.body.setVelocityX(-5);
+    bg1.body.setAllowGravity(false);
+
+    bg2 = this.physics.add.image(1200, 300, "background");
+    bg2.setCollideWorldBounds(false);
+    bg2.body.setVelocityX(-5);
+    bg2.body.setAllowGravity(false);
+
+    bg3 = this.physics.add.image(0, 300, "backgroundAlpha");
+    bg3.setCollideWorldBounds(false);
+    bg3.body.setVelocityX(-10);
+    bg3.body.setAllowGravity(false);
+
+    bg4 = this.physics.add.image(800, 300, "backgroundAlpha");
+    bg4.setCollideWorldBounds(false);
+    bg4.body.setVelocityX(-10);
+    bg4.body.setAllowGravity(false);
 
     player = this.physics.add.sprite(200, 200, "player");
     player.setBounce(0.2);
@@ -90,8 +110,29 @@ export default new Phaser.Class({
       repositionWall(wall2);
     }
 
+    wall1.forEach((block) => {
+      block.angle += 1;
+    });
+
+    wall2.forEach((block) => {
+      block.angle += 1;
+    });
+
     if (player.y >= 800) {
       this.scene.start("diescreen");
+    }
+
+    if (bg1.x < -400) {
+      bg1.x = 1200;
+    }
+    if (bg2.x < -400) {
+      bg2.x = 1200;
+    }
+    if (bg3.x < -400) {
+      bg3.x = 1200;
+    }
+    if (bg4.x < -400) {
+      bg4.x = 1200;
     }
   },
 });
