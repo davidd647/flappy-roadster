@@ -1,7 +1,5 @@
 import Phaser from "phaser";
-
 import starman from "../assets/starman-final-sm.png";
-
 import background from "./background";
 
 let graphics;
