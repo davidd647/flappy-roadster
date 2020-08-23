@@ -1,6 +1,4 @@
 import Phaser from "phaser";
-// import background from "../assets/hyades-800x600.jpg";
-// import backgroundAlpha from "../assets/hyades-800x600.png";
 import starmanXS from "../assets/starman-final-xsm.png";
 import crate from "../assets/asteroid-alpha.png";
 import background from "./background";
