@@ -122,7 +122,7 @@ export default new Phaser.Class({
       block.angle += 1;
     });
 
-    if (player.y >= 800) {
+    if (player.y >= 800 || player.y <= 0) {
       this.scene.start("diescreen", actualTime);
     }
 
