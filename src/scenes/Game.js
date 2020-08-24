@@ -63,7 +63,6 @@ export default new Phaser.Class({
     actualTime = 0;
     timer = this.add.text(550, 50, "Score: 0");
 
-    console.log("touch test init...");
     this.input.on(
       "pointerdown",
       function () {

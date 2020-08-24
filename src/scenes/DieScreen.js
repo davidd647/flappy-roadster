@@ -23,6 +23,14 @@ export default new Phaser.Class({
       "Your score was: " + Math.round(timeStayedAlive) * 100
     );
     this.add.text(260, 315, "Press space to restart.");
+
+    this.input.on(
+      "pointerdown",
+      function () {
+        this.scene.start("mainmenu");
+      },
+      this
+    );
   },
   update: function () {
     if (cursors.space.isDown) {

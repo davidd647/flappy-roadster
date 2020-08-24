@@ -38,7 +38,6 @@ export default new Phaser.Class({
       loop: -1,
     });
 
-    console.log("touch test init...");
     this.input.on(
       "pointerdown",
       function () {
