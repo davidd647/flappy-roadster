@@ -38,6 +38,15 @@ export default new Phaser.Class({
       loop: -1,
     });
 
+    console.log("touch test init...");
+    this.input.on(
+      "pointerdown",
+      function () {
+        this.scene.start("game");
+      },
+      this
+    );
+
     graphics = this.add.graphics();
     graphics.fillStyle(0x000000, 0.85);
     graphics.fillRect(250, 200, 450, 215);
