@@ -1,7 +1,6 @@
 import Phaser from "phaser";
 import MainMenu from "./scenes/MainMenu";
 import Game from "./scenes/Game";
-import WinScreen from "./scenes/WinScreen";
 import DieScreen from "./scenes/DieScreen";
 
 var config = {
@@ -14,7 +13,7 @@ var config = {
       gravity: { y: 1500, x: 0 },
     },
   },
-  scene: [MainMenu, Game, DieScreen, WinScreen],
+  scene: [MainMenu, Game, DieScreen],
 };
 
 var game = new Phaser.Game(config);
