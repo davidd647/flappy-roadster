@@ -57,8 +57,8 @@ export default new Phaser.Class({
     this.add.text(270, 315, "is pulling you off-course!");
     this.add.text(270, 330, "Use rocket boosters to avoid asteroids!");
 
-    this.add.text(270, 360, "Move with up with the space bar.");
-    this.add.text(270, 375, "Press space to start.");
+    this.add.text(270, 360, "Move with up with the space bar (or touch).");
+    this.add.text(270, 375, "Press space (or touch) to start.");
   },
   update: function () {
     if (cursors.space.isDown) {

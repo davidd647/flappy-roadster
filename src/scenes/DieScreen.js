@@ -22,7 +22,7 @@ export default new Phaser.Class({
       300,
       "Your score was: " + Math.round(timeStayedAlive) * 100
     );
-    this.add.text(260, 315, "Press space to restart.");
+    this.add.text(260, 315, "Press space or touch to restart.");
 
     this.input.on(
       "pointerdown",
