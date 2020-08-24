@@ -62,6 +62,14 @@ export default new Phaser.Class({
     this.physics.add.collider(wall2, player, processCollision);
     actualTime = 0;
     timer = this.add.text(550, 50, "Score: 0");
+
+    this.input.on(
+      "pointerdown",
+      function () {
+        player.setVelocityY(-500);
+      },
+      this
+    );
   },
   update: function () {
     actualTime += 0.01;
